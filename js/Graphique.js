@@ -17,9 +17,8 @@ Class.create("Fenetre",{
 	anime : function(){
 		this._isAnime=" anime"
 	},
-	//if we want animation
-	getClasse:function(){
-		return (this._visible ? "fenVisible" : "fenInvisible") + this._isAnime;
+	getClasses:function(){
+		return (this._visible ? "fenVisible" : "fenInvisible") + this._isAnime + " fen " + this._name;
 	},
 	getteurEtSetteur:"name"
 })

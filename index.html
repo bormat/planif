@@ -22,7 +22,10 @@
 		Pour Internet Explorer seule la v11 à été testé ie8 incompatible et ie9 et 10 surement compatible.
 		</div>
 		<div ng-include="'html/deleteAccessToFileForbiden.html'"></div>
-		<div  ng-repeat="fen in tabFen"  ng-class="fen.getClasse()"  class=" fen {{fen.getName()}}" ng-include="fen.getNameToInclude()"  />
+		<div ng-class="fen.getClasses()"  ng-repeat="fen in tabFen">
+			<div class="lafen1"  ng-click="fen.afficher(false)"></div>
+			<div  class="lafen2" ng-include="fen.getNameToInclude()"></div>
+		</div>
 	</div>
 	<style id="changeStylecell"> </style>
 	<style id="changeStylechangeTexte"> </style>

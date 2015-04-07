@@ -1,6 +1,5 @@
 var publicAccessToScope = publicAccessToScope || {};
-void function controlleur ($scope){
-		$scope.message="test2"
+function controlleur ($scope){
 		var $=$scope || {};//pour les tests 
 		$.form={fermer:true};//contient col derniere colonne cliqué, heureDeb, minuteDeb, heureFin, minuteFin
 		$.mode="ajout";
@@ -151,5 +150,6 @@ void function controlleur ($scope){
 		$scope.$apply();
 	}
 	return $;
-}(publicAccessToScope)
+}
+controlleur(publicAccessToScope)
 

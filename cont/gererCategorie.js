@@ -38,13 +38,13 @@ function gererCategorie($){
 		$.titreCat.val = '';
 	}
 	$.ajoutCategorie=function(){
-		if($.planning.estCategorieExistante(new Categorie(couleurCat.val,$.titreCat.val)) != null) {
+		if($.planning.estCategorieExistante(new Categorie($.couleurCat.val,$.titreCat.val)) != null) {
 			alert("Catégorie déjà existante");
 		} else {
 			if ($.planning.getCategories().length >= 10) {
 				alert("Vous ne pouvez ajouter que 10 catégories");
 			} else {
-				$.planning.ajouterCategories(couleurCat.val,$.titreCat.val);
+				$.planning.ajouterCategories($.couleurCat.val,$.titreCat.val);
 				$.fenetreAjoutCategorie.afficher(false);
 				$.titreCat.val ="";
 				$.formEvmt.categorie="";

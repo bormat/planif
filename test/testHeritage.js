@@ -2,12 +2,12 @@
 	var Pere=function(){}
 	Pere.prototype.getChiffre = function(){return 5}
 	
-	var Fils = Class.create({
+	 Class.create("Fils",{
 		extend  : Pere,
 	})
 	assert.equal( Pere.prototype, Object.getPrototypeOf(Fils.prototype), "Passed!" );
 	
-	PetitFils = Class.create({extend : Fils})
+	Class.create("PetitFils",{extend : Fils})
 	
 	var fils = new Fils();
 	var pere= new Pere();
@@ -37,12 +37,12 @@ QUnit.test( "surcharge", function( assert ) {
 	var Pere=function(){}
 	Pere.prototype.getChiffre = function(){return 5}
 	
-	var Fils = Class.create({
+	Class.create("Fils",{
 		extend  : Pere,
 		getChiffre	: function(){return 6}	
 	})
 
-	PetitFils = Class.create({extend : Fils})
+	 Class.create("PetitFils",{extend : Fils})
 	
 	var fils = new Fils();
 	var fils2 = new Fils();
@@ -61,7 +61,7 @@ QUnit.test( "constructeur", function( assert ) {
 	var Pere=function(){}
 	Pere.prototype.getChiffre = function(){return 5}
 	
-	var Fils = Class.create({
+	 Class.create("Fils",{
 		extend  : Pere,
 		initialize:function(){this._b=9},
 		getChiffre	: function(){return 6},
@@ -85,7 +85,7 @@ QUnit.test( "constructeur", function( assert ) {
 
 QUnit.test( "constructeurParam", function( assert ) {
 	var Pere=function(){}
-	var Fils = Class.create({
+	Class.create("Fils",{
 		extend  : Pere,
 		initialize:function(b){this._b=b},
 	})
@@ -97,17 +97,17 @@ QUnit.test( "constructeurParam", function( assert ) {
 });
 
 QUnit.test( "constructeurHeritage", function( assert ) {
-	var Pere = Class.create({
+	Class.create("Pere",{
 		initialize:function(){this._b=9},
 		getNumber:function(){ return 3}
 	})
 	
-	var Fils = Class.create({
+	Class.create("Fils",{
 		extend  : Pere,
 		getNumber:function(){ return $super()+2}
 	})
 	
-	var PetitFils = Class.create({
+	Class.create("PetitFils",{
 		extend  : Fils,
 		initialize:function(){
 			this._b = 3;
@@ -127,26 +127,26 @@ QUnit.test( "constructeurHeritage", function( assert ) {
 });
 
 QUnit.test( "super", function( assert ) {
-	var Pere = Class.create({
+	Class.create("Pere",{
 		initialize:function(){this._b=9},
 		getNumber:function(){ return 3}
 	})
 	
-	var Fils = Class.create({
+	Class.create("Fils",{
 		extend  : Pere,
 		getNumber:function(){ 
 			return $super() + 1;
 		}
 	})
 	
-	var PetitFils = Class.create({
+	Class.create("PetitFils",{
 		extend  : Fils,
 		initialize:function(){
 			$super();
 			this._b+=1;//10
 		}
 	})
-	var PetitPetitFils = Class.create({
+	Class.create("PetitPetitFils",{
 		extend  : PetitFils,
 		initialize:function(){
 			this._b = this._b || 99;
@@ -178,7 +178,7 @@ QUnit.test( "super", function( assert ) {
 });
 
 QUnit.test( "super", function( assert ) {
-	var e = Class.create({
+	Class.create("e",{
 		extend : Array	
 	})	
 	var a = new e();

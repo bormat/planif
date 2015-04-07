@@ -156,7 +156,11 @@
 			.btnMode:hover{
 				color:rgb(0,199,19);
 			}
-			
+			.grillePlanning .lafen2{
+				position:fixed;
+				width:100% !important;
+				
+			}
 			#slogan{
 			text-decoration:underline;
 			font-family: "MV Boli", Georgia, Serif;
@@ -302,11 +306,7 @@
 				overflow-y: scroll;
 				overflow-x: hidden;
 			}
-			
-			.grillePlanning .laFen2{
-				width:100%;
-				height:100%
-			}
+				
 			#AjoutH{
 			color:rgb(199,140,54);
 			}

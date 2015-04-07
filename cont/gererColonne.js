@@ -41,16 +41,5 @@ var gestionColonne=function($){
 		col.setLargeurPx(largeurElm, largeurPlanning)
 		$.planning.repartirColonnes();
 	}
-	/*$.modifHeure = function(){
-		if ($.horaire.heureDeb >= $.horaire.heureFin){
-			alert('Veuillez saisir un créneau horaire valide.');
-		}else{
-			$.planning.getHoraire().initialize($.horaire);
-			$.ligne = [];
-			for (var h = $.horaire.heureDeb ; h < $.horaire.heureFin; h++){
-			  $.ligne.push(h);
-			}
-			$.fenetreModifHoraire.afficher(false);
-		}
-	}*/
+	
 }

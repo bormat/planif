@@ -63,10 +63,6 @@ function controlleur ($scope){
 				$.grillePlanning.afficher(!afficher);
 		}
 
-		$.undo = function(){
-			var toUndo = poubelle.pop()
-			toUndo.undo();
-		}
 						
 		$.modifHeure = function(){
 			if ($.horaire.heureDeb >= $.horaire.heureFin) {

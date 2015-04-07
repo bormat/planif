@@ -52,22 +52,4 @@ QUnit.test( "testGetterOnly", function( assert ) {
 	assert.equal(  instance.getTheA(), 8, "Passed!" );
 })
 
-QUnit.test( "testGetterDetableau", function( assert ) {
-	//utilisation non sure
-	Class.create("classee",{
-		initialize:function (a,b){
-			this._as=[1,2,3,4];
-		}
-	})
-	var instance= new classee();
-	addGetterDetableau(classee,["a"]);
-	assert.equal( instance.getA(2), 3, "Passed!" );
-	assert.equal(  instance.getAs()[3], instance.getA(3), "Passed!" );
-	instance.ajtA(5);
-	assert.equal(  instance.getA(4), 5, "Passed!" );
-	assert.equal(  instance.getAs().length, 5, "Passed!" );
-	instance.supA(3);
-	assert.equal(  instance.getAs().length, 4, "Passed!" );
-	assert.equal(  instance.getA(2), 4, "Passed!" );	
-})
 

@@ -132,6 +132,10 @@ function controlleur ($scope){
 		$.planning = parseChaine($.form.import);
 		$.fenImport.afficher(false);
 	}
+	$.actualiser = function(){
+		parseChaine(serializeObjet($.planning));
+	}
+	
 	if(window.hasOwnProperty("pasUnTest")){
 		$scope.$apply();
 	}

@@ -156,10 +156,15 @@
 			.btnMode:hover{
 				color:rgb(0,199,19);
 			}
-			.grillePlanning .lafen2{
-				position:fixed;
-				width:100% !important;
-				
+			.grillePlanning .lafen2 {
+				position: fixed;
+				width: 100% !important;
+				height: 100%;
+				overflow-y: scroll;
+			}
+			
+			.grillePlanning {
+				overflow:scroll;	
 			}
 			#slogan{
 			text-decoration:underline;
@@ -505,7 +510,7 @@
 		
 		
 		@media print {
-				body,.grillePlanning{
+			body,.grillePlanning{
 				overflow:visible;
 			}
 			.grillePlanning{
@@ -528,10 +533,17 @@
 		.grillePlanning {
 			display:block;
 			background:none;
-			 height: calc(100% + 1px);/*ie hack sinon juste une page*/
+			height: calc(100% + 1px);/*ie hack sinon juste une page*/
 			position:absolute;
 			width:100%;
 		}
+		.grillePlanning .lafen2 {
+			width:100%;
+			height:	100%;
+			position:absolute;
+			overflow:visible;
+		}
+		
 			body{
 				background:white;
 			}
@@ -544,6 +556,7 @@
 			#tableau{
 				margin-top:0px;
 				padding:0px;
+				width:100%;
 			}
 			.fen{
 			  padding: 0px;//nécessaire pour ie pour la legende 

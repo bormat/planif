@@ -69,9 +69,6 @@ Class.create("EvenementClassique",{
 			this._tabEvenementAutreCol[indMax].supprimer();
 		}
 	},
-	getNbCol:function(){
-		return this._tabEvenementAutreCol.length;
-	},
 	largeur : function() {
 		var largeur=0;
 		for( var i=0; i < this._tabEvenementAutreCol.length; i++){
@@ -80,7 +77,7 @@ Class.create("EvenementClassique",{
 		var maLarg = this.getColonne().getLargeur();
 		return 100 * (maLarg + largeur)/maLarg + "%"
 	},
-	getteurEtSetteur : "nom,description,tabEvenementAutreCol,categorie",
+	getteurEtSetteur : "nom,description,tabEvenementAutreCol,categorie,nbCol",
 
 })
 

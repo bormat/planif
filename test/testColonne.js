@@ -23,7 +23,7 @@ QUnit.test( "testColonneGetLargeur", function( assert ) {
 QUnit.test( "testColonneSetTaches", function( assert ) {
 	var colonneTest = new Colonne("salle Rubis",10);
 	var periodeTest = new Periode({heureDeb:8});
-	var evenementTest = new EvenementClassique("TD","UML",periodeTest,"conception informatique",1);
+	var evenementTest = new EvenementClassique("TD","UML", periodeTest,"conception informatique",1);
 	colonneTest.ajouterEvenement(evenementTest);
 	var tabEvmt = new Array(evenementTest);
 	colonneTest.setTaches(tabEvmt);
@@ -50,7 +50,7 @@ QUnit.test( "testColonneSupprimerEvenement", function( assert ) {
 	var colonneTest = new Colonne("salle Rubis",10);
 	var evenementTest= new Evenement();
 	var periodeTest = new Periode({heureDeb:8});
-	var evmt=new EvenementClassique("TP","refactoring",periodeTest,"Informatique",1);
+	var evmt=new EvenementClassique("TP","refactoring", periodeTest,"Informatique",1);
 	colonneTest.ajouterEvenement(evmt);
 	colonneTest.ajouterEvenement(evmt);
 

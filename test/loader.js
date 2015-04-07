@@ -8,5 +8,5 @@ function load(arg,dossier){
 	}
 }
 load("serialisation,ElementGraphique,Planning,Colonne,Evenement,Periode,Graphique,Categorie,Page","../js/")
-load("gererCategorie,gererColonne,gererCreationPlanning,gererEvenement","../cont/")
+load("gererCategorie,gererColonne,gererCreationPlanning,gererEvenement,gererPolice","../cont/")
 load("controllerImpl","../")

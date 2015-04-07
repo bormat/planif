@@ -41,7 +41,7 @@ var gestionColonne=function($){
 		col.setLargeurPx(largeurElm, largeurPlanning)
 		$.planning.repartirColonnes();
 	}
-	$.modifHeure = function(){
+	/*$.modifHeure = function(){
 		if ($.horaire.heureDeb >= $.horaire.heureFin){
 			alert('Veuillez saisir un créneau horaire valide.');
 		}else{
@@ -52,5 +52,5 @@ var gestionColonne=function($){
 			}
 			$.fenetreModifHoraire.afficher(false);
 		}
-	}
+	}*/
 }

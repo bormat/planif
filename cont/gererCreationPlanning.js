@@ -23,12 +23,12 @@ var gererPlanning = function($){
 		}
 		planning.setHoraire(new Periode($.horaire));
 		planning.ajouterCategories("#ccb800","Default");
-		planning.ajouterCategories("red","sport");
-		planning.ajouterCategories("orange","foot");
-		planning.ajouterCategories("white","sieste");
-		planning.ajouterCategories("green","ceuillete");
-		planning.ajouterCategories("cyan","avion");
-		planning.ajouterCategories("yellow","bronzette au soleil");
+	planning.ajouterCategories("red","");
+		planning.ajouterCategories("orange","");
+		planning.ajouterCategories("white","");
+		planning.ajouterCategories("green","");
+		planning.ajouterCategories("cyan","");
+		planning.ajouterCategories("yellow","");
 		planning.repartirColonnes();
 	}
 }

@@ -322,13 +322,11 @@
 			}
 			
 			.AjoutCol{
-				margin-left:-50px;
+				margin-left:-55px;
 				width:0;
 			}
+					
 			
-			.bigCol + .AjoutCol{
-				margin-left: -55px; 
-			}
 			.bigCol{
 				height:100% !important;
 			}
@@ -338,6 +336,7 @@
 				width:50px;
           		border:solid 1px #C2C2C2;
 				border:1px solid black;
+				margin-top: 1px;
 			}
 			
 			.imgAjout{

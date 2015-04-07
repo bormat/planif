@@ -412,8 +412,10 @@
 		.fixed{
 			position:fixed;
 		}
+	
+		
 
-		.fen > form{
+		.fen .lafen2> form{
 			display: inline-block;
 			border-radius: 15px;
 			box-shadow: 5px 5px 5px #888888;
@@ -426,6 +428,21 @@
 			z-index:10;
 		}
 		
+		.lafen1{
+			height: 100%;
+			width: 100%;
+			background: white;
+			opacity: 0.5;
+			position:fixed;		
+		}
+		.lafen1{
+			position:absolute;		
+		}
+		
+		.grillePlanning .lafen1{
+			opacity:0;
+		
+		}
 		.A4 {
               width:100%;
               height: 100%;

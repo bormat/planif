@@ -60,11 +60,11 @@ Class.create("EvenementClassique",{
 		for( var i= 1 ; i < nb-indMax; i++){
 		  var evnmt = new EvenementInvisible(this._periode);
 		  evnmt.setEvenementClassique(this);
-		  this._tabEvenementAutreCol.push(this)
+		  this._tabEvenementAutreCol.push(evnmt);
 		  colonnes[indiceMaCol + i].ajouterEvenement(evnmt)
 		}
 		//suppression si necessaire
-		while(nb  <= indMax ){
+		while(nb  <= indMax && indMax>0 ){
 			indMax--;
 			this._tabEvenementAutreCol[indMax].supprimer();
 		}

@@ -1,5 +1,5 @@
 var publicAccessToScope = publicAccessToScope || {};
-function controlleur ($scope){
+void function controlleur ($scope){
 		$scope.message="test2"
 		var $=$scope || {};//pour les tests 
 		$.form={fermer:true};//contient col derniere colonne cliqué, heureDeb, minuteDeb, heureFin, minuteFin
@@ -146,13 +146,10 @@ function controlleur ($scope){
 			var f=$.formPerso;
 			$$("#changeStyle" + f.classCss).html("."+f.classCss+"{color:"+f.polCouleur+";font-size:"+
 			f.polTaille+"px;font-family:"+f.polStyle+";}");
-	
+	}
 	if(window.hasOwnProperty("pasUnTest")){
 		$scope.$apply();
 	}
 	return $;
-	}
-}
-
-controlleur(publicAccessToScope)
+}(publicAccessToScope)
 

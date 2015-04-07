@@ -15,7 +15,7 @@ QUnit.test( "testFenetreAfficher", function( assert ) {
 
 QUnit.test( "testFenetreAvecTransitionTrue", function( assert ) {
 	var fenetreTest = new Fenetre();
-	fenetreTest.setName("toto")
+	fenetreTest.setName("toto");
 	fenetreTest.afficher(true);
 	assert.equal(fenetreTest.getClasses(), "fenVisible fen toto", "Passed!" );
 	fenetreTest.afficher(false);
@@ -25,7 +25,7 @@ QUnit.test( "testFenetreAvecTransitionTrue", function( assert ) {
 
 QUnit.test( "testFenetreAvecTransitionFalse", function( assert ) {
 	var fenetreTest = new Fenetre();
-	fenetreTest.setName("toto")
+	fenetreTest.setName("toto");
 	fenetreTest.afficher(true);
 	assert.equal(fenetreTest.getClasses(), "fenVisible fen toto", "Passed!" );
 	fenetreTest.afficher(false);

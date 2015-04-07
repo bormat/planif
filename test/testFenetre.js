@@ -14,13 +14,20 @@ QUnit.test( "testFenetreAfficher", function( assert ) {
 });
 
 QUnit.test( "testFenetreAvecTransitionTrue", function( assert ) {
-	var fenetreTest = new FenetreAvecTransition();
+	var fenetreTest = new Fenetre();
+	fenetreTest.setName("toto")
 	fenetreTest.afficher(true);
-	assert.equal(fenetreTest.getClasse(), "optionVisible", "Passed!" );
+	assert.equal(fenetreTest.getClasses(), "fenVisible fen toto", "Passed!" );
+	fenetreTest.afficher(false);
+	assert.equal(fenetreTest.getClasses(), "fenInvisible fen toto", "Passed!" );
+
 });
 
 QUnit.test( "testFenetreAvecTransitionFalse", function( assert ) {
-	var fenetreTest = new FenetreAvecTransition();
+	var fenetreTest = new Fenetre();
+	fenetreTest.setName("toto")
+	fenetreTest.afficher(true);
+	assert.equal(fenetreTest.getClasses(), "fenVisible fen toto", "Passed!" );
 	fenetreTest.afficher(false);
-	assert.equal(fenetreTest.getClasse(), "optionInvisible", "Passed!" );
+	assert.equal(fenetreTest.getClasses(), "fenInvisible fen toto", "Passed!" );
 });

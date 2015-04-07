@@ -23,26 +23,20 @@ function gererEvenmt($){
 		}
 		
 		$.copierEvenement=function() {
-			var f =$.formEvmt;
-			$.evenementCopie = evenementCopie = new EvenementClassique();
-			evenementCopie.setNom(f.titre).setPeriode(f).setDescription(f.description);
-			evenementCopie.setCategorie(f.categorie).setNbCol(f.nbCol)
+			var f = $.formEvmt;
+			$.evenementCopie={};
+			for (i in $.formEvmt){
+				$.evenementCopie[i] = $.formEvmt[i];
+			}			
 			$.fenetreEditEvnt.afficher(false);
 		}
 		
 		$.collerEvenement=function() {
-			var colonne = $.form.col;
-			var per= new Periode($.form);	
-			if ($.planning.testDepassementNombreColonnes(colonne, $.formEvmt.nbCol)) {
-					alert("Impossible d'ajouter l'évènement : débordement de la page");
-					return false;
+			for (i in $.formEvmt){
+				$.formEvmt[i] = $.evenementCopie[i];
 			}
-			$.formEvmt.titre=evenementCopie.getNom();
-			$.formEvmt.description=evenementCopie.getDescription();
-			$.formEvmt.categorie=evenementCopie.getCategorie();
-			$.formEvmt.nbCol=evenementCopie.getNbCol();
-			evenementCopie.setPeriode(per);
 		}
+		
 		function viderInput(){
 			$.formEvmt.titre="";
 			$.formEvmt.description="";

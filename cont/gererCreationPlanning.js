@@ -1,13 +1,13 @@
-var gererPlanning = function($){
+ï»¿var gererPlanning = function($){
 	$.reinitialiser=function(){
-		if(confirm('Vous êtes sur le point de réinitialiser votre planning.\n\n'
-				+ 'Attention, cette action est irréversible !') && $.planning.getColonnes().length>0){
+		if(confirm('Vous Ãªtes sur le point de rÃ©initialiser votre planning.\n\n'
+				+ 'Attention, cette action est irrÃ©versible !') && $.planning.getColonnes().length>0){
 			$.planning.reinitialiser();
 		}
 	}
 	$.creerPlanning = function(mode) {
 		$.afficherAccueil(false);
-		//ne pas effacer le planning si le mode est le même
+		//ne pas effacer le planning si le mode est le mÃªme
 		if ($.planning && $.planning.getMode() == mode){
 			return ;
 		}

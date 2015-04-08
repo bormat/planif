@@ -1,4 +1,4 @@
-var gererPolice=function($){
+﻿var gererPolice=function($){
 	/*******************************/
 	/********Changement police*************/
 	/*******************************/

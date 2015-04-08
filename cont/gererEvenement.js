@@ -1,11 +1,11 @@
-		/*******************************/
+ï»¿		/*******************************/
 		/********Afficher formulaire****/
 		/*******************************/
 function gererEvenmt($){
 		$.validationFormulaireEvenement= function(){
 			var evnmt = ($.mode =="ajout") ? new EvenementClassique() : $.form.evnmt ;
 			if ($.planning.testDepassementNombreColonnes($.form.col, $.formEvmt.nbCol)) {
-					alert("Impossible de modifier l'évènement : débordement de la page");
+					alert("Impossible de modifier l'Ã©vÃ¨nement : dÃ©bordement de la page");
 					return false;
 			}
 			evnmt.initialize($.formEvmt.titre, $.formEvmt.description, new Periode($.formEvmt), $.formEvmt.categorie, $.formEvmt.nbCol);

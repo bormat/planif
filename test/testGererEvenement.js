@@ -59,11 +59,3 @@ QUnit.test( "afficherAjouterEvenement", function( assert ) {
 	assert.equal($.mode,"ajout");
 })
 
-QUnit.test( "actualiser", function( assert ){
-	var cont = controlleur();
-	cont.creerPlanning("journalier")
-	var oldPlan = cont.planning;
-	cont.actualiser()
-	assert.equal(oldPlan===cont.planning,false);
-	assert.equal(cont.planning.getMode(),"journalier");
-})

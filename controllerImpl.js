@@ -138,6 +138,13 @@ function controlleur ($scope){
 	
 	if(window.hasOwnProperty("pasUnTest")){
 		$scope.$apply();
+		$.message = function (m){
+			alert(m)
+		}
+	}else{
+		$.message = function (m){
+			throw m;
+		}	
 	}
 	return $;	
 }

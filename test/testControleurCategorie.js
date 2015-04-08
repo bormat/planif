@@ -6,13 +6,13 @@
 QUnit.test( "testModifierCategorie", function( assert ) {
 	var cont = controlleur();
 	cont.creerPlanning("hebdomadaire");
-	var cat = new Categorie("green","azeret");
-	cont.titreCat.val = cat.getNom();
-	cont.couleurCat.val = cat.getCouleur();
+	var cat = new Categorie("blue","azerty");
+	cont.formCat.nom = cat.getNom();
+	cont.formCat.couleur = cat.getCouleur();
 	cont.ajoutCategorie();
 	var res = cont.planning._categories.length;
 	cont.formEvmt.categorie = cat;
-	cont.titreCat.val = "azerty";
+	cont.formCat.nom = "azerty";
 	cont.modifierCategorie();
 	
 	assert.equal( cont.planning._categories[res-1].getNom(), "azerty");
@@ -33,14 +33,29 @@ QUnit.test( "testAjoutCategorie", function( assert ) {
 	var cont = controlleur();
 	cont.creerPlanning("hebdomadaire");
 	var res = cont.planning._categories.length;
-	cont.titreCat.val = "Test";
-	cont.couleurCat.val = "green";
+	cont.formCat.nom = "Test";
+	cont.formCat.couleur = "rgb(255,255,255)";
 	cont.ajoutCategorie();
 	
 	assert.equal( cont.planning._categories.length, res+1);
 	assert.equal( cont.planning._categories[res].getNom(), "Test");
-	assert.equal( cont.planning._categories[res].getCouleur(), "green");
+	assert.equal( cont.planning._categories[res].getCouleur(), "rgb(255,255,255)");
 });
+
+QUnit.test( "testAjoutCategorieException", function( assert ) {
+	var cont = controlleur();
+	cont.creerPlanning("hebdomadaire");
+	var res = cont.planning._categories.length;
+	cont.formCat.nom = "Test";
+	cont.formCat.couleur = "green";
+	assert.throws(
+		function() {
+		  cont.ajoutCategorie();
+		},
+		"catégorie en double"
+	);
+});
+
 
 QUnit.test( "testAfficherAjouterCategorie", function( assert ) {
 	var cont = controlleur();
@@ -49,18 +64,17 @@ QUnit.test( "testAfficherAjouterCategorie", function( assert ) {
 	
 	assert.equal( cont.fenCategorie._visible, false);
 	assert.equal( cont.fenetreAjoutCategorie._visible, true);
-	assert.equal( cont.titreCat.val, "");
-	assert.equal( cont.couleurCat.val, "#000000");
+	assert.equal( cont.formCat.nom, "");
+	assert.equal( cont.formCat.couleur, "#000000");
 });
 
 QUnit.test( "testAfficherModifierCategorie", function( assert ) {
 	var cont = controlleur();
 	cont.creerPlanning("hebdomadaire");
 	cont.afficherModifierCategorie();
-	
 	assert.equal( cont.fenCategorie._visible, true);
-	assert.equal( cont.titreCat.val, "");
-	assert.equal( cont.couleurCat.val, cont.planning.getCategories()[0].getCouleur());
+	assert.equal( cont.formCat.nom, "");
+	assert.equal( cont.formCat.couleur, cont.planning.getCategories()[1].getCouleur());
 });
 
 QUnit.test( "testRetourModifierCategorie", function( assert ) {

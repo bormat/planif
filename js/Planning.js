@@ -148,7 +148,7 @@ Class.create("Planning", {
 	nbCategoriesSimilaires : function(couleur, nom){
 		var nbMemeCat = 0;
 		this._categories.forEach (function(cat) {
-			if ((cat.getNom() == nom && cat.getNom() != "")|| cat.getCouleur() == couleur){
+			if (cat.getNom() == nom || cat.getCouleur() == couleur){
 				nbMemeCat++;
 			}
 		})

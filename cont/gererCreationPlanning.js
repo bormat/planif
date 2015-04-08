@@ -23,12 +23,12 @@ var gererPlanning = function($){
 		}
 		planning.setHoraire(new Periode($.horaire));
 		planning.ajouterCategories("#ccb800","Default");
-	planning.ajouterCategories("red","");
-		planning.ajouterCategories("orange","");
-		planning.ajouterCategories("white","");
-		planning.ajouterCategories("green","");
-		planning.ajouterCategories("cyan","");
-		planning.ajouterCategories("yellow","");
+	planning.ajouterCategories("red","uml");
+		planning.ajouterCategories("orange","informatique");
+		planning.ajouterCategories("white","mathematique");
+		planning.ajouterCategories("green","developement");
+		planning.ajouterCategories("cyan","anglais");
+		planning.ajouterCategories("yellow","droit");
 		planning.repartirColonnes();
 	}
 }

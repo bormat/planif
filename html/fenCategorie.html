@@ -9,7 +9,7 @@
 		<img id="ajoutCat" ng-click="afficherAjouterCategorie()" src="./css/img/iconeplus.png" class="radio ajoutCategorie" ></img>
 		<div>
 			<input id="titreCategorie" type="text" ng-model="formCat.nom" />
-			<input type="color" ng-model="formCat.couleur" />
+			<input type="color" value="{{formCat.couleur}}" ng-model="formCat.couleur" />
 			<button ng-click="modifierCategorie()" ng-disabled= "form.categorie == ''">Modifier</button>
 			<button ng-click="supprimerCategorie()" ng-disabled= "form.categorie == ''">Supprimer</button>
 			<button ng-click="fenCategorie.afficher(false); ">Annuler</button>

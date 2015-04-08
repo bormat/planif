@@ -11,7 +11,7 @@
 			nbSim++;
 		}
 		if(nbSim > 1 ){
-				alert("Catégorie déjà existante");
+				$.message("Catégorie déjà existante");
 		}else{
 			cat.setNom($.formCat.nom);
 			cat.setCouleur($.formCat.couleur);
@@ -25,7 +25,7 @@
 	}
 	$.ajoutCategorie=function(){
 		if($.planning.nbCategoriesSimilaires($.formCat.couleur,$.formCat.nom) > 0) {
-			alert("nom de catégorie ou couleur déjà existante");
+			$.message("nom de catégorie ou couleur déjà existante");
 		} else {
 			$.planning.ajouterCategories($.formCat.couleur,$.formCat.nom);
 			$.fenetreAjoutCategorie.afficher(false);
@@ -47,7 +47,9 @@
 	$.afficherModifierCategorie=function() {
 		$.fenCategorie.afficher(true);
 		$.formCat.nom ="";
-		$.formEvmt.categorie = $.planning.getCategories()[1];
+		var cat = $.planning.getCategories()[1];
+		$.formCat.couleur = cat.getCouleur();
+		$.formEvmt.categorie = cat;
 	}
 	
 	$.retourModifierCategorie = function() {

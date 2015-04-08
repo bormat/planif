@@ -145,14 +145,14 @@ Class.create("Planning", {
 	supprimerCategorie:function(categorie){
       this._categories.suppElmt(categorie);
 	},
-	estCategorieExistante:function(categorie){
-		var res = null;
+	nbCategoriesSimilaires : function(couleur, nom){
+		var nbMemeCat = 0;
 		this._categories.forEach (function(cat) {
-			if (cat.getNom() == categorie.getNom() && cat.getCouleur() == categorie.getCouleur()) {
-				res = cat;
+			if ((cat.getNom() == nom && cat.getNom() != "")|| cat.getCouleur() == couleur){
+				nbMemeCat++;
 			}
 		})
-		return res;
+		return nbMemeCat;
 	},
 	testDepassementNombreColonnes:function(colonne, nbColonnes){
 		var colonnes = colonne.getPage().getColonnes();

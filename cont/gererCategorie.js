@@ -1,69 +1,53 @@
-function gererCategorie($){
+Ôªøfunction gererCategorie($){
+	$.formCat = {nom : "defaut" , couleur:"black"}
 	$.focusCouleur=function(categorie){
 		$.formEvmt.categorie = categorie;
-		$.titreCat.val = $.formEvmt.categorie.getNom();
+		$.formCat.nom = $.formEvmt.categorie.getNom();
 	}	
 	$.modifierCategorie=function(){
-		var nom = $.formEvmt.categorie.getNom();
-		var couleur = $.formEvmt.categorie.getCouleur();
-		if(nom != $.titreCat.val) {
-			if($.planning.estCategorieExistante(new Categorie(couleur,$.titreCat.val)) != null) {
-				$.titreCat.val = nom;
-				alert("CatÈgorie dÈj‡ existante");
-			} else {
-				var listeCategories = $.planning.getCategories();
-				var res = new Categorie();
-				var indice;
-				listeCategories.forEach (function(cat) {
-					if (cat.getNom() == nom && cat.getCouleur() == couleur) {
-						indice = listeCategories.indexOf(cat);
-						res.setNom($.titreCat.val);
-						res.setCouleur(couleur);
-						listeCategories[indice] = res;
-					}
-				})	
-				$.planning.setCategories(listeCategories);
-				$.formEvmt.categorie = res;
-			}
+		var cat = ($.formEvmt.categorie != $.planning.getCategories()[0]) ? $.formEvmt.categorie : $.planning.getCategories()[1];
+		var nbSim = $.planning.nbCategoriesSimilaires($.formCat.couleur,$.formCat.nom)
+		if (cat.getNom() != $.formCat.nom && cat.getCouleur() != $.formCat.couleur){
+			nbSim++;
 		}
-	}	
-	$.supprimerCategorie=function(){
-		var nom = $.formEvmt.categorie.getNom();
-		var couleur = $.formEvmt.categorie.getCouleur();
-		var catSup = $.planning.estCategorieExistante(new Categorie(couleur,nom));
-		if (catSup != null) {
-			$.planning.supprimerCategorie(catSup);
-		}
-		$.formEvmt.categorie = '';
-		$.titreCat.val = '';
-	}
-	$.ajoutCategorie=function(){
-		if($.planning.estCategorieExistante(new Categorie($.couleurCat.val,$.titreCat.val)) != null) {
-			alert("CatÈgorie dÈj‡ existante");
-		} else {
-			if ($.planning.getCategories().length >= 10) {
-				alert("Vous ne pouvez ajouter que 10 catÈgories");
-			} else {
-				$.planning.ajouterCategories($.couleurCat.val,$.titreCat.val);
-				$.fenetreAjoutCategorie.afficher(false);
-				$.titreCat.val ="";
-				$.formEvmt.categorie="";
-				$.fenCategorie.afficher(true);
-			}
+		if(nbSim > 1 ){
+				alert("Cat√©gorie d√©j√† existante");
+		}else{
+			cat.setNom($.formCat.nom);
+			cat.setCouleur($.formCat.couleur);
 		}
 	}
 	
+	$.supprimerCategorie=function(){
+		$.planning.supprimerCategorie($.formEvmt.categorie);
+		$.formEvmt.categorie = '';
+		$.formCat.nom = '';
+	}
+	$.ajoutCategorie=function(){
+		if($.planning.nbCategoriesSimilaires($.formCat.couleur,$.formCat.nom) > 0) {
+			alert("nom de cat√©gorie ou couleur d√©j√† existante");
+		} else {
+			$.planning.ajouterCategories($.formCat.couleur,$.formCat.nom);
+			$.fenetreAjoutCategorie.afficher(false);
+			$.fenCategorie.afficher(true);
+		}		
+	}
+	
 	$.afficherAjouterCategorie=function() {
+		if ($.planning.getCategories().length >= 10) {
+				alert("Vous ne pouvez ajouter que 10 cat√©gories");
+				return false;
+		}
 		$.fenCategorie.afficher(false);
 		$.fenetreAjoutCategorie.afficher(true);
-		$.titreCat.val ="";
-		$.couleurCat.val = "#000000";
+		$.formCat.nom ="";
+		$.formCat.couleur = "#000000";
 	}
 	
 	$.afficherModifierCategorie=function() {
 		$.fenCategorie.afficher(true);
-		$.titreCat.val ="";
-		$.couleurCat.val = $.planning.getCategories()[0].getCouleur();
+		$.formCat.nom ="";
+		$.formEvmt.categorie = $.planning.getCategories()[1];
 	}
 	
 	$.retourModifierCategorie = function() {

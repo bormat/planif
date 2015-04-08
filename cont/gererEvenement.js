@@ -42,19 +42,21 @@ function gererEvenmt($){
 			$.formEvmt.description="";
 		}
 		$.afficherAjouterEvenement=function(col,ligneDeb){
+			$.formEvmt.categorie = $.planning.getCategories()[0];
+			$.form.col=col;
+			$.fenetreEditEvnt.afficher(true);
 			viderInput();
 			$.mode="ajout";
-			$.formEvmt.categorie = $.planning.getCategories()[0];
 			$.titreCat.val = $.planning.getCategories()[0].getNom();
 			$.formEvmt.nbCol = 1;
-			$.fenetreEditEvnt.afficher(true);
 			initHeureEvmt(ligneDeb,ligneDeb+1);	
-			$.form.col=col;
 		}
 		
 		$.afficherModifierEvenement=function(evmt,col){
-			$.mode="modif";
 			$.formEvmt.categorie = evmt.getCategorie();
+			$.form.col=col;	
+			$.fenetreEditEvnt.afficher(true);	
+			$.mode="modif";
 			$.titreCat.val = $.formEvmt.categorie.getNom();
 			var p = evmt.getPeriode();
 			var hDeb = p.getHeureDebut();
@@ -64,10 +66,7 @@ function gererEvenmt($){
 			initHeureEvmt(hDeb,hFin,mDeb,mFin);
 			$.formEvmt.titre=evmt.getNom();
 			$.formEvmt.description=evmt.getDescription();
-			$.fenetreEditEvnt.afficher(true);	
-			$.form.col=col;	
 			$.form.evnmt=evmt;
-			$.formEvmt.categorie = evmt.getCategorie();
 		}
 		
 		var initHeureEvmt=function(hDeb,hFin,mDeb,mFin){

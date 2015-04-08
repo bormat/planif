@@ -20,7 +20,6 @@ QUnit.test( "ajoutEvnmt", function( assert ) {
 	assert.equal(evnmt.getNom() ,"titre"  );
 	assert.equal(evnmt.getCategorie(),"cat" );
 	assert.equal(evnmt.getTabEvenementAutreCol().length, 0);
-
 });
 
 QUnit.test( "testSupprimer", function( assert ) {
@@ -46,4 +45,25 @@ QUnit.test( "copierColler", function( assert ) {
 	assert.equal(cont.formEvmt.nbCol, 5);
 	assert.equal(cont.formEvmt.description, "uneDesc");
 	assert.equal(cont.formEvmt.titre, "un titre");
+})
+QUnit.test( "afficherAjouterEvenement", function( assert ) {
+	var cont = controlleur();
+	cont.creerPlanning("journalier")
+	cont.afficherAjouterEvenement(new Colonne(),8);
+	var $ = cont;
+	assert.equal ($.titreCat.val , $.planning.getCategories()[0].getNom());
+	assert.equal($.formEvmt.heureDeb, 8)
+	assert.equal($.formEvmt.minuteDeb,0);
+	assert.equal($.formEvmt.heureFin,9);
+	assert.equal($.formEvmt.minuteFin,0);
+	assert.equal($.mode,"ajout");
+})
+
+QUnit.test( "actualiser", function( assert ){
+	var cont = controlleur();
+	cont.creerPlanning("journalier")
+	var oldPlan = cont.planning;
+	cont.actualiser()
+	assert.equal(oldPlan===cont.planning,false);
+	assert.equal(cont.planning.getMode(),"journalier");
 })

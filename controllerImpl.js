@@ -133,7 +133,7 @@ function controlleur ($scope){
 		$.fenImport.afficher(false);
 	}
 	$.actualiser = function(){
-		parseChaine(serializeObjet($.planning));
+		$.planning = parseChaine(serializeObjet($.planning));
 	}
 	
 	if(window.hasOwnProperty("pasUnTest")){
